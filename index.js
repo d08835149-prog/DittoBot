@@ -1,12 +1,20 @@
 require("dotenv").config();
 
-const { App } = require("@slack/bolt");
+const { App, LogLevel } = require("@slack/bolt");
 const axios = require("axios");
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
   appToken: process.env.SLACK_APP_TOKEN,
-  socketMode: true
+  socketMode: true,
+  loglevel: LogLevel.DEBUG
+});
+
+app.command("/dittobot-ping", async ({ ack, respond }) => {
+ const start = Date.now();
+ await ack();
+ const latency = Date.now() - start;
+ await respond({ text: `Pong!\nLatency: ${latency}ms` });
 });
 
 app.command("/dittobot-help", async ({ ack, respond }) => {

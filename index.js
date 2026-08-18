@@ -16,8 +16,29 @@ require("./commands/quote")(app);
 require("./commands/roll")(app);
 require("./commands/choose")(app);
 require("./commands/number")(app);
+require("./commands/coin")(app);
+require("./commands/8ball")(app);
+require("./commands/count")(app);
+require("./commands/percent")(app);
+require("./commands/password")(app);
+require("./commands/calc")(app);
+require("./commands/time")(app);
+require("./commands/weather")(app);
 
 (async () => {
   await app.start();
   console.log("bot is running!");
 })();
+
+
+
+
+
+
+
+ 
+ 
+ 
+
+ 
+

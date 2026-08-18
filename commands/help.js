@@ -15,7 +15,6 @@ module.exports = (app) => {
 /dittobot-percent - Calculate a percentage
 /dittobot-count - Count words and characters
 /dittobot-password - Generate a random password
-/dittobot-time - Show the current time
 /dittobot-weather - Check the current weather
 
 🎲 *Random & Decisions*

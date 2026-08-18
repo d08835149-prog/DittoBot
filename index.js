@@ -22,7 +22,6 @@ require("./commands/count")(app);
 require("./commands/percent")(app);
 require("./commands/password")(app);
 require("./commands/calc")(app);
-require("./commands/time")(app);
 require("./commands/weather")(app);
 
 (async () => {

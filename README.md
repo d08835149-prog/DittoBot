@@ -15,6 +15,14 @@ I made it because I wanted to learn how to build and connect a bot to Slack.
 ![DittoBot Commands](screenshots/commands.png)
 
 ## How to Run Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/d08835149-prog/DittoBot.git
+cd DittoBot
+```
+
 Install the packages:
 
 ```bash

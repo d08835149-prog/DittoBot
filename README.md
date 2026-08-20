@@ -1,14 +1,14 @@
 # DittoBot
 
-DittoBot is a 24/7 running SlackBot that I created.
+DittoBot is a Slack bot that I created that runs 24/7.
 
 (p.s. Sorry for making you ask for the README so many times. I finally wrote it myself.)
 
 
 ## What is DittoBot?
 
-DittoBot is a Slack bot that I made to /dittobot- choose.
-It can /dittobot-calc and /dittobot-8ball.
+DittoBot is a Slack bot that I made with several commands.
+It currently has `/dittobot-choose`, `/dittobot-calc`, and `/dittobot-8ball`.
 I made it because I wanted to learn how to build and connect a bot to Slack.
 
 ## Commands
@@ -44,13 +44,21 @@ node index.js
 
 ## Tech Stack
 
-*Node.js
-*JavaScript
-*Slack Bolt
-*Slack Socket Mode
-*systemd
+-Node.js
+-JavaScript
+-Slack Bolt
+-Slack Socket Mode
+-systemd
 
-## Project Structure
+## What I Learned
 
-commands/ ├── calc.js ├── percent.js ├── count.js ├── password.js ├── weather.js ├── roll.js ├── coin.js ├── number.js ├── choose.js ├── 8ball.js ├── joke.js ├── catfact.js └── quote.js
+While creating DittoBot, I learned how to connect to a Linux server via SSH, how to use the Slack Bot API, and more.
 
+It wasn't without issues. The `/ping` command had many problems, but I eventually fixed them.
+
+## Future Improvement
+I plan to add the following features in the next version:
+
+- A timer function
+- More humor commands
+- More practical commands

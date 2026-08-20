@@ -1,6 +1,6 @@
 # DittoBot
 
-Before we begin, please note that this README.md uses AI.
+Before we begin, please note that this README.md uses some of AI.
 
 It started with one command.
 

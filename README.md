@@ -44,11 +44,11 @@ node index.js
 
 ## Tech Stack
 
--Node.js
--JavaScript
--Slack Bolt
--Slack Socket Mode
--systemd
+- Node.js
+- JavaScript
+- Slack Bolt
+- Slack Socket Mode
+- systemd
 
 ## What I Learned
 

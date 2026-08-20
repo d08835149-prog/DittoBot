@@ -1,5 +1,7 @@
 # DittoBot
 
+Before we begin, please note that this README.md uses AI.
+
 It started with one command.
 
 `/dittobot-ping`

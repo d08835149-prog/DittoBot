@@ -42,3 +42,15 @@ Then run:
 node index.js
 ```
 
+## Tech Stack
+
+*Node.js
+*JavaScript
+*Slack Bolt
+*Slack Socket Mode
+*systemd
+
+## Project Structure
+
+commands/ ├── calc.js ├── percent.js ├── count.js ├── password.js ├── weather.js ├── roll.js ├── coin.js ├── number.js ├── choose.js ├── 8ball.js ├── joke.js ├── catfact.js └── quote.js
+

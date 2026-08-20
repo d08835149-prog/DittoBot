@@ -1,87 +1,200 @@
 # DittoBot
 
-DittoBot is a Slack bot I made for Hack Club Stardance.
+It started with one command.
 
-I started with a simple ping command, then added more commands that I thought would be useful or fun. The bot is running 24/7 on Hack Club Nest.
+`/dittobot-ping`
 
-## Commands
+That was it.
 
-![DittoBot commands](screenshots/commands.png)
+Then, naturally, I thought, *“What if I add a calculator?”*
 
-- `/dittobot-help` - Shows all commands
-- `/dittobot-ping` - Checks the bot latency
-- `/dittobot-calc` - Calculator
-- `/dittobot-percent` - Calculates percentages
-- `/dittobot-count` - Counts words and characters
-- `/dittobot-password` - Generates a random password
-- `/dittobot-weather` - Checks the weather
-- `/dittobot-roll` - Rolls a dice
-- `/dittobot-coin` - Flips a coin
-- `/dittobot-number` - Picks a random number
-- `/dittobot-choose` - Chooses between different options
-- `/dittobot-8ball` - Magic 8 ball
-- `/dittobot-joke` - Gives you a random joke
-- `/dittobot-catfact` - Gives you a random cat fact
-- `/dittobot-quote` - Gives you a random quote
+And then a random number generator.
+
+And dice.
+
+And a coin flip.
+
+And a Magic 8-Ball.
+
+And weather.
+
+And jokes.
+
+And cat facts.
+
+And suddenly, somehow, I had built **DittoBot**, a Slack bot with **14 different commands** running 24/7 on a Linux server.
+
+## What Can It Do?
+
+Basically, if you need to make a completely unnecessary decision in Slack, DittoBot probably has a command for it.
+
+
+![DittoBot Commands](screenshots/commands.png)
+
+* `/dittobot-help` — Shows all available commands
+* `/dittobot-ping` — Checks bot latency
+* `/dittobot-calc` — Calculates expressions
+* `/dittobot-percent` — Calculates percentages
+* `/dittobot-count` — Counts characters and words
+* `/dittobot-password` — Generates a random password
+* `/dittobot-weather` — Checks the weather
+* `/dittobot-roll` — Rolls dice
+* `/dittobot-coin` — Flips a coin
+* `/dittobot-number` — Picks a random number
+* `/dittobot-choose` — Picks one option from a list
+* `/dittobot-8ball` — Answers questions with a Magic 8-Ball
+* `/dittobot-joke` — Tells a random joke
+* `/dittobot-catfact` — Gives a random cat fact
+* `/dittobot-quote` — Gives a random quote
+
+Yes.
+
+There are **15 commands**, not 14.
+
+Apparently I can't count.
 
 ## Example
 
-![DittoBot demo](screenshots/demo.png)
+![DittoBot Demo](screenshots/demo.png)
 
-You can give the bot a few choices:
+## The Most Important Feature
+
+Obviously, it's `/dittobot-choose`.
+
+Give it a few options:
 
 ```text
 /dittobot-choose pizza, burger, sushi
 ```
 
-and it will pick one:
+And DittoBot will make the decision for you:
 
 ```text
-🎯 I choose: burger!
+🎯 I chose the burger!
 ```
 
-You can also do things like:
+Congratulations. You no longer have to decide what to eat.
+
+## Demo
+
+It can also do slightly more useful things:
 
 ```text
 /dittobot-calc 25 * 4 + 10
+
 /dittobot-weather Toronto
+
 /dittobot-number 1 100
 ```
 
-## How I made it
+## How It Started
 
-I used Node.js, JavaScript, Slack Bolt, and a few APIs for commands like weather, jokes, and cat facts.
+The first version was basically one giant `index.js`.
 
-At first I had all of the commands inside `index.js`, but it started getting pretty long, so I moved each command into its own file inside the `commands` folder.
+Every command went into the same file.
 
-The bot uses Slack Socket Mode and the tokens are stored in a `.env` file so they aren't uploaded to GitHub.
+It worked.
 
-## Running it
+Then the file passed 300 lines.
 
-Install the packages:
+At that point, `index.js` started becoming less of a file and more of a cry for help.
 
-```bash
-npm install
-```
+So I split everything into separate files inside the `commands` folder.
 
-Create a `.env` file with:
+Much better.
+
+Future me can now understand what past me was doing.
+
+## The Tech Behind It
+
+DittoBot is built with:
+
+* Node.js
+* JavaScript
+* Slack Bolt
+* Slack Socket Mode
+* Several APIs
+* Linux
+* systemd
+
+The Slack tokens are stored in `.env` rather than being committed to GitHub.
 
 ```env
 SLACK_BOT_TOKEN=your_bot_token
 SLACK_APP_TOKEN=your_app_token
 ```
 
-Then run:
+Which is significantly better than putting them directly into the source code and discovering security a little too late.
 
-```bash
-node index.js
+## Making It Actually Stay Online
+
+Running a bot on my laptop is easy.
+
+Running a bot **24/7** is a different story.
+
+So I deployed DittoBot to **Nest** and configured it as a `systemd` service.
+
+Now the server starts the bot automatically and keeps it running even when I disconnect.
+
+Which means:
+
+> I can close my laptop, and the bot keeps working.
+
+This is probably the most satisfying part of the entire project.
+
+## The One Bug That Hated Me
+
+During deployment, I discovered that:
+
+```text
+/dittobot-ping
 ```
 
-I deployed the bot to Hack Club Nest and set it up as a systemd service so it can keep running after I disconnect from the server.
+didn't work.
 
-## What I learned
+Everything else was fine.
 
-This was my first time making a Slack bot. I learned how slash commands work, how to use APIs, how to split a Node.js project into multiple files, and how to deploy a bot to a Linux server.
+After investigating, I found the problem.
 
-I also had quite a few problems while deploying it, especially with the server version of the code and systemd, but I eventually got it running.
+While refactoring the project into multiple files, I had accidentally deleted the code responsible for the ping command.
 
+So the bot wasn't broken.
+
+I had simply deleted the feature.
+
+After fixing it, `/dittobot-ping` returned to its rightful place.
+
+## What I Actually Learned
+
+This project started as a collection of commands that sounded fun.
+
+But it ended up teaching me quite a lot.
+
+I learned how to:
+
+* Build Slack slash commands
+* Work with Slack Bolt
+* Organize a growing Node.js project
+* Separate features into modules
+* Work with APIs
+* Manage environment variables
+* Run Node.js applications on Linux
+* Configure a `systemd` service
+* Debug problems caused by refactoring
+* Keep a bot running independently from my laptop
+
+The biggest lesson was probably this:
+
+**A project doesn't have to start out complicated to become a real engineering project.**
+
+DittoBot started with:
+
+```text
+/dittobot-ping
+```
+
+And somehow ended up as a 24/7 Slack bot with a small army of completely unnecessary commands.
+
+Honestly?
+
+Worth it.

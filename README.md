@@ -15,34 +15,22 @@ I made it because I wanted to learn how to build and connect a bot to Slack.
 ![DittoBot Commands](screenshots/commands.png)
 
 ## How to Run Locally
+Install the packages:
 
-1. Clone the repository
-git clone https://github.com/d08835149-prog/DittoBot.git
-cd DittoBot
-
-3. Install dependencies
-
-Install the required Node.js packages:
-
+```bash
 npm install
-3. Create the .env file
+```
 
-Create a file named .env in the root directory:
+Create a `.env` file with:
 
+```env
 SLACK_BOT_TOKEN=your_bot_token
 SLACK_APP_TOKEN=your_app_token
+```
 
-Replace the values with the tokens from your Slack app.
+Then run:
 
-Do not upload your .env file to GitHub.
-
-Make sure .env is included in .gitignore:
-
-.env
-node_modules/
-4. Start DittoBot
-
-Run:
-
+```bash
 node index.js
+```
 
